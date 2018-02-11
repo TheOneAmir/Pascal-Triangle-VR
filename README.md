@@ -1,4 +1,4 @@
-# Pascal-Triangle-VR
+# Pascal-Triangle-VR (Not yet completed)
 
 # Details
 A 3D rendering of Pascal's pyramid in a VR environment. 
