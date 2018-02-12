@@ -29,30 +29,28 @@ class Pyramid extends React.Component{
 		};
 	}
 	
+	
 	render(){
 		return(
 			<View>
-				{this.state.line.map((x, i) =>
-					<Box
-						  dimWidth={0.1}
-						  dimDepth={0.1}
-						  dimHeight={0.1}
-						  style={{
-							transform: [{translate: [-1,0,-x]}]
-						  }}
-					/>
-				)}				
-				{this.state.triangle.map((x2, i) =>
-					{x2.map((y, j) =>
-						<Box
-							  dimWidth={0.1}
-							  dimDepth={0.1}
-							  dimHeight={0.1}
-							  style={{
-								transform: [{translate: [j,-1,-i]}]
-							  }}
-						/>
-					)}
+				{this.state.pyramid.map((length, i) =>
+					<View key={i}>
+						{length.map((height, j) =>
+						    <View key={j}>
+								{height.map((depth, k) => 							
+									<Box key={k}
+										  dimWidth={depth == 0 ? 0 : 0.1}
+										  dimDepth={depth == 0 ? 0 : 0.1}
+										  dimHeight={depth == 0 ? 0 : 0.1}
+										  style={{
+											transform: [{translate: [j * 0.110,-i * 0.110, -k * 0.110 - 1]}]
+										  }}
+										  opacity={90}
+									/>
+								)}
+							</View>
+						)}
+					</View>
 				)}
 			</View>
 		)
