@@ -19,17 +19,20 @@ const styles = StyleSheet.create({
   },
 });
 
+const distBetweenBoxes = 0.14;
+const initialZOffset = -1;
+const initialYOffset = -0.2;
+
 class Pyramid extends React.Component{
 	constructor(){
 		super();
 		this.state={
-			pyramid: [[[0,0,0],[0,1,0],[0,0,0]],[[1,0,1],[0,0,0],[1,0,1]]],
+			pyramid: [[[0],[0],[0,0,1,,0,0],[0],[0]],[[0],[0,1,0,1,0],[0,0,0],[0,1,0,1,0],[0]],[[1,0,2,0,1],[0,0,0,0,0],[2,0,0,0,2],[0,0,0,0,0],[1,0,2,0,1]]],
 			triangle: [[0,1,0],[1,0,1]],
 			line: [0,1,2],
 		};
 	}
-	
-	
+
 	render(){
 		return(
 			<View>
@@ -43,9 +46,10 @@ class Pyramid extends React.Component{
 										  dimDepth={depth == 0 ? 0 : 0.1}
 										  dimHeight={depth == 0 ? 0 : 0.1}
 										  style={{
-											transform: [{translate: [j * 0.110,-i * 0.110, -k * 0.110 - 1]}]
+											transform: [{translate: [j * distBetweenBoxes - distBetweenBoxes * 2,-i * distBetweenBoxes + initialYOffset, -k * distBetweenBoxes + initialZOffset]}]
 										  }}
 										  opacity={90}
+										  wireframe={true}
 									/>
 								)}
 							</View>
@@ -94,15 +98,7 @@ export default class Pascal_Triangle_VR extends React.Component {
   render() {
     return (
       <View>
-        <Pano source={asset('chess-world.jpg')}/>		
-		<Box
-		  dimWidth={0.1}
-		  dimDepth={0.1}
-		  dimHeight={0.1}
-		  style={{
-			transform: [{translate: [0,-1,-2]}]
-		  }}
-		/>
+        <Pano source={asset('black-background.jpg')}/>		
 		<Pyramid />
       </View>
     );
