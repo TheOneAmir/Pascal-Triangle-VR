@@ -5,6 +5,7 @@ import {
   Box,
   Pano,
   StyleSheet,
+  Model,
   Text,
   View,
 } from 'react-vr';
@@ -19,7 +20,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const distBetweenBoxes = 0.14;
+const distBetweenBoxes = 3.2;
 const initialZOffset = -1;
 const initialYOffset = -0.2;
 
@@ -27,7 +28,7 @@ class Pyramid extends React.Component{
 	constructor(){
 		super();
 		this.state={
-			pyramid: [[[0],[0],[0,0,1,,0,0],[0],[0]],[[0],[0,1,0,1,0],[0,0,0],[0,1,0,1,0],[0]],[[1,0,2,0,1],[0,0,0,0,0],[2,0,0,0,2],[0,0,0,0,0],[1,0,2,0,1]]],
+			pyramid: [[[0],[0],[0,0,1,0,0],[0],[0]],[[0],[0,0,1,0,0],[0,0,0],[0,1,0,1,0],[0]],[[0,0,1,0,0],[0,0,0,0,0],[0,2,0,2,0],[0,0,0,0,0],[1,0,2,0,1]]],
 			triangle: [[0,1,0],[1,0,1]],
 			line: [0,1,2],
 		};
@@ -40,17 +41,29 @@ class Pyramid extends React.Component{
 					<View key={i}>
 						{length.map((height, j) =>
 						    <View key={j}>
-								{height.map((depth, k) => 							
-									<Box key={k}
-										  dimWidth={depth == 0 ? 0 : 0.1}
-										  dimDepth={depth == 0 ? 0 : 0.1}
-										  dimHeight={depth == 0 ? 0 : 0.1}
-										  style={{
-											transform: [{translate: [j * distBetweenBoxes - distBetweenBoxes * 2,-i * distBetweenBoxes + initialYOffset, -k * distBetweenBoxes + initialZOffset]}]
+								{height.map((depth, k) =>
+									<View key={k}>
+										<Model   
+											source={{
+											obj: asset(depth + '.obj'),
+											mtl: asset(depth + '.mtl'),
 										  }}
-										  opacity={90}
-										  wireframe={true}
-									/>
+											  style={{
+												scaleX: 0.01,
+												transform: [{translate: [j * distBetweenBoxes - distBetweenBoxes * 2,-i * distBetweenBoxes + initialYOffset - 10, -k * distBetweenBoxes + initialZOffset - 18]}]
+											  }}
+										 />	
+										<Box key={k}
+											  dimWidth={depth == 0 ? 0 : 0.1}
+											  dimDepth={depth == 0 ? 0 : 0.1}
+											  dimHeight={depth == 0 ? 0 : 0.1}
+											  style={{
+												transform: [{translate: [j * distBetweenBoxes - distBetweenBoxes * 2,-i * distBetweenBoxes + initialYOffset, -k * distBetweenBoxes + initialZOffset]}]
+											  }}
+											  opacity={0}
+											  wireframe={true}
+										/>
+									</View>
 								)}
 							</View>
 						)}
