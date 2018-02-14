@@ -9,6 +9,7 @@ import {
   Text,
   View,
 } from 'react-vr';
+import Walk from 'react-vr-walk'
 
 const styles = StyleSheet.create({
   bigblue: {
@@ -103,8 +104,10 @@ export default class Pascal_Triangle_VR extends React.Component {
   render() {
     return (
       <View>
-        <Pano source={asset('black-background.jpg')}/>		
-		<Pyramid />
+	    <Walk panoSource={asset('black-background.jpg')}
+            speed={1}>				
+			<Pyramid />
+		</Walk>
       </View>
     );
   }
