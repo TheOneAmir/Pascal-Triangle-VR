@@ -20,15 +20,17 @@ const styles = StyleSheet.create({
   },
 });
 
-const distBetweenBoxes = 3.2;
-const initialZOffset = -1;
-const initialYOffset = -0.2;
+const distBetweenBoxes = 4;
+const yDistBetweenBoxes = distBetweenBoxes * 1.2;
+const initialZOffset = -19;
+const initialXOffset = -2;
+const initialYOffset = -3.8;
 
 class Pyramid extends React.Component{
 	constructor(){
 		super();
 		this.state={
-			pyramid: [[[0],[0],[0,0,1,0,0],[0],[0]],[[0],[0,0,1,0,0],[0,0,0],[0,1,0,1,0],[0]],[[0,0,1,0,0],[0,0,0,0,0],[0,2,0,2,0],[0,0,0,0,0],[1,0,2,0,1]]],
+			pyramid: [[[],[],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,1,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0]],[[],[0],[0],[0,0,0,1,0,0,0,0,0],[0,0,0,0,0,1,0,0,0],[0,0,0,1,0,0,0,0,0],[0]],[[],[0],[0,0,1,0,0,0,0,0],[0,0,0,0,2,0,0,0,0],[0,0,2,0,0,0,1,0,0],[0,0,0,0,2,0,0,0,0],[0,0,1,0,0,0,0,0,0]],[[],[0,1,0,0,0,0,0,0,0],[0,0,0,3,0,0,0,0,0],[0,3,0,0,0,3,0,0,0],[0,0,0,6,0,0,0,1,0],[0,3,0,0,0,3,0,0,0],[0,0,0,3,0,0,0,0,0],[0,1,0,0,0,0,0,0,0]],[[1,0,0,0,0,0,0,0,0],[0,0,4,0,0,0,0,0,0],[4,0,0,0,6,0,0,0,0],[0,0,12,0,0,0,4,0,0],[6,0,0,0,12,0,0,0,1],[0,0,12,0,0,0,4,0,0],[4,0,0,0,6,0,0,0,0],[0,0,4,0,0,0,0,0,0],[1,0,0,0,0,0,0,0,0]]],
 			triangle: [[0,1,0],[1,0,1]],
 			line: [0,1,2],
 		};
@@ -45,24 +47,14 @@ class Pyramid extends React.Component{
 									<View key={k}>
 										<Model   
 											source={{
-											obj: asset(depth + '.obj'),
-											mtl: asset(depth + '.mtl'),
+											obj: asset(depth + 'l' + i + '.obj'),
+											mtl: asset(depth + 'l' + i + '.mtl'),
 										  }}
 											  style={{
 												scaleX: 0.01,
-												transform: [{translate: [j * distBetweenBoxes - distBetweenBoxes * 2,-i * distBetweenBoxes + initialYOffset - 10, -k * distBetweenBoxes + initialZOffset - 18]}]
+												transform: [{translate: [j * distBetweenBoxes - distBetweenBoxes * 4,-i * yDistBetweenBoxes + initialYOffset, -k * distBetweenBoxes + initialZOffset]}]
 											  }}
 										 />	
-										<Box key={k}
-											  dimWidth={depth == 0 ? 0 : 0.1}
-											  dimDepth={depth == 0 ? 0 : 0.1}
-											  dimHeight={depth == 0 ? 0 : 0.1}
-											  style={{
-												transform: [{translate: [j * distBetweenBoxes - distBetweenBoxes * 2,-i * distBetweenBoxes + initialYOffset, -k * distBetweenBoxes + initialZOffset]}]
-											  }}
-											  opacity={0}
-											  wireframe={true}
-										/>
 									</View>
 								)}
 							</View>
