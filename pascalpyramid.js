@@ -1,15 +1,4 @@
 import React from 'react';
-import {
-  AppRegistry,
-  asset,
-  Box,
-  Pano,
-  StyleSheet,
-  Model,
-  Text,
-  View,
-} from 'react-vr';
-import Walk from 'react-vr-walk'
 
 const distBetweenBoxes = 4;
 const yDistBetweenBoxes = distBetweenBoxes * 1.2;
@@ -23,9 +12,9 @@ const depth2 = [[],[],[],[0,0,0,1,0,0,0,0,0,0],[0,0,0,0,0,2,0,0,0,0,0],[0,0,0,2,
 const depth3 = [[],[],[0,0,1,0,0,0,0,0,0,0,0],[0,0,0,0,3,0,0,0,0,0,0],[0,0,3,0,0,0,3,0,0,0,0],[0,0,0,0,6,0,0,0,1,0,0],[0,0,3,0,0,0,3,0,0,0,0],[0,0,0,0,3,0,0,0,0,0,0],[0,0,1,0,0,0,0,0,0,0,0],[],[]];
 const depth4 = [[],[0,1,0,0,0,0,0,0,0,0,0],[0,0,0,4,0,0,0,0,0,0,0],[0,4,0,0,0,6,0,0,0,0,0],[0,0,0,12,0,0,0,4,0,0,0],[0,6,0,0,0,12,0,0,0,1,0],[0,0,0,12,0,0,0,4,0,0,0],[0,4,0,0,0,6,0,0,0,0,0],[0,0,0,4,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0,0,0],[]];
 const depth5 = [[1,0,0,0,0,0,0,0,0,0,0],[0,0,5,0,0,0,0,0,0,0,0],[5,0,0,0,10,0,0,0,0,0,0],[0,0,20,0,0,0,10,0,0,0,0],[10,0,0,0,30,0,0,0,5,0,0],[0,0,30,0,0,0,20,0,0,0,1],[10,0,0,0,30,0,0,0,5,0,0],[0,0,20,0,0,0,10,0,0,0,0],[5,0,0,0,10,0,0,0,0,0,0],[0,0,5,0,0,0,0,0,0,0,0],[1,0,0,0,0,0,0,0,0,0,0]];
-const pyramid = [depth0,depth1,depth2,depth3,depth4,depth5];
+const pyramid= [depth0,depth1,depth2,depth3,depth4,depth5];
 
-class Pyramid extends React.Component{
+export default class Pyramid extends Component{
 	constructor(){
 		super();
 	}
@@ -57,20 +46,5 @@ class Pyramid extends React.Component{
 			</View>
 		)
 	}
+	
 };
-
-export default class Pascal_Triangle_VR extends React.Component {
-
-  render() {
-    return (
-      <View>
-	    <Walk panoSource={asset('black-background.jpg')}
-            speed={1}>				
-			<Pyramid />
-		</Walk>
-      </View>
-    );
-  }
-};
-
-AppRegistry.registerComponent('Pascal_Triangle_VR', () => Pascal_Triangle_VR);
