@@ -1,7 +1,17 @@
-# Pascal-Triangle-VR (Not yet completed)
-
-# Details
-A 3D rendering of Pascal's pyramid in a VR environment. 
+# Pascal-Triangle-VR 
+A 3D VR render of the first five levels of Pascal's pyramid. 
 
 # Purpose
-The internet has many representations of Pascal's Triangle but not many of the pyramid form with an additional dimension. So, this is an experimental project for the joy of number theorists. 
+There are many online representations of Pascal's Triangle but not many of the pyramid form. So, this is an experimental rendition for the joy of number theory. 
+
+# Details 
+The project uses a modified version of React VR Walk from: https://github.com/apoeco/react-vr-walk </br>
+Controls: </br>
+A: Move west </br>
+S: Move south </br>
+D: Move east </br>
+W: Move north </br>
+E: Move up </br>
+X: Move down </br>
+
+![alt text](https://github.com/TheOneAmir/Pascal-Triangle-VR/blob/master/static_assets/PascalsPyramid.PNG)
