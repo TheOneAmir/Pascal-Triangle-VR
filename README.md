@@ -1,5 +1,5 @@
 # Pascal-Triangle-VR 
-A 3D VR render of the first five levels of Pascal's pyramid hosted on Github.
+A 3D VR render of the first five levels of Pascal's pyramid hosted on Github. </br>
 https://theoneamir.github.io/Pascal-Triangle-VR/ 
 
 # Purpose
