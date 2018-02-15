@@ -1,5 +1,6 @@
 # Pascal-Triangle-VR 
-A 3D VR render of the first five levels of Pascal's pyramid. 
+A 3D VR render of the first five levels of Pascal's pyramid hosted on Github.
+https://theoneamir.github.io/Pascal-Triangle-VR/ 
 
 # Purpose
 There are many online representations of Pascal's Triangle but not many of the pyramid form. So, this is an experimental rendition for the joy of number theory. 
